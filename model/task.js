@@ -1,0 +1,17 @@
+import mongoose, {Schema} from "mongoose";
+
+const taskSchema = new Schema(
+    {
+        title: String,
+        priority: String,
+        description: String,
+        duedate: String,
+    },
+    {
+        timestamps: true,
+    }
+);
+
+const Task = mongoose.models.Task || mongoose.model("Task", taskSchema);
+
+export default Task;
