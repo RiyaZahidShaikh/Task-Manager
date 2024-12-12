@@ -74,8 +74,8 @@ export default function AddCard() {
 
   return (
     <div className="p-20 justify-center">
-      <div className="flex bg-black w-full p-2 mb-8 justify-between items-center">
-        <div className="text-white">Task Manager</div>
+      <div className="flex bg-black w-full rounded-lg p-2 mb-8 justify-between items-center">
+        <Link href={'/'} className="text-white">Task Manager</Link>
         <Link
           className={buttonVariants({ variant: "outline" })}
           href={"/AddCard"}

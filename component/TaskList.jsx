@@ -68,7 +68,6 @@ export default function TaskList() {
     fetchTasks();
   }, []);
 
-
   if (loading) return <p>Loading tasks...</p>; // Display loading state
   if (error) return <p>Error loading tasks: {error}</p>; // Display error state
 
@@ -81,47 +80,20 @@ export default function TaskList() {
         >
           <CardHeader>
             <div className="flex w-full space-x-2">
-              <CardTitle
-                className={
-                  checkedState[t._id] ? "line-through text-gray-400" : ""
-                }
-              >
-               Task Title: {t.title}
-              </CardTitle>
+              <CardTitle>Task Title: {t.title}</CardTitle>
             </div>
-            <CardDescription
-              className={
-                checkedState[t._id] ? "line-through text-gray-400" : ""
-              }
-            >
-             Task Description: {t.description}
-            </CardDescription>
-            <CardDescription
-              className={
-                checkedState[t._id] ? "line-through text-gray-400" : ""
-              }
-            >
-             Task Status: {t.priority}
-            </CardDescription>
-            <CardDescription
-              className={
-                checkedState[t._id] ? "line-through text-gray-400" : ""
-              }
-            >
-             Due Date: {t.duedate}
-            </CardDescription>
+            <CardDescription>Task Description: {t.description}</CardDescription>
+            <CardDescription>Task Status: {t.priority}</CardDescription>
+            <CardDescription>Due Date: {t.duedate}</CardDescription>
           </CardHeader>
           <CardContent>
             <div className="flex justify-end gap-2">
               <Button onClick={() => removeTask(t)}>Delete</Button>
-              {/* <Link href={`/editTopic/${t._id}`}>
-                Edit
-              </Link> */}
             </div>
           </CardContent>
           <CardFooter>
             <p>
-            Last Modified Date:
+              Last Modified Date:
               {!t.updatedAt
                 ? new Date(t.createdAt).toLocaleDateString()
                 : new Date(t.updatedAt).toLocaleDateString()}
